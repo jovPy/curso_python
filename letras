@@ -1,0 +1,10 @@
+try:
+    caractere = input("Digite um caractere: ")
+    if not caractere or not caractere.isalpha():
+        raise TypeError("Entrada inválida. Digite apenas um caractere alfabético.")
+    print("Caractere aceito:", caractere)
+
+except TypeError as erro:
+    print("Erro:", erro)
+except Exception as e:
+    print("Ocorreu um erro inesperado:", e)
