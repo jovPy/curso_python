@@ -1,0 +1,37 @@
+import unittest
+
+# === Funções a serem testadas ===
+def soma(a, b):
+    return a + b
+
+def eh_par(numero):
+    if numero % 2 == 0:
+        return "Par"
+    else:
+        return "Ímpar"
+
+def inverter_texto(texto):
+    return texto[::-1]
+class TestFuncoes(unittest.TestCase):
+
+    # Exercício 1 — soma
+    def test_soma(self):
+        self.assertEqual(soma(2, 3), 5)
+        self.assertEqual(soma(-2, 2), 0)
+        self.assertNotEqual(soma(10, 5), 20)
+
+    # Exercício 2 — eh_par
+    def test_eh_par(self):
+        self.assertEqual(eh_par(10), "Par")
+        self.assertEqual(eh_par(3), "Ímpar")
+        self.assertNotEqual(eh_par(5), "Par") 
+
+    # Exercício 3 — inverter_texto
+    def test_inverter_texto(self):
+        self.assertEqual(inverter_texto("python"), "nohtyp") 
+        self.assertNotEqual(inverter_texto("abc"), "abc")   
+        self.assertEqual(inverter_texto(""), "")
+
+# === Executar testes ===
+if __name__ == "__main__":
+    unittest.main()
