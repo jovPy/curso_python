@@ -1,0 +1,19 @@
+def verificar_logs():
+    try:
+        with open("log.txt", "r") as arquivo:
+            linha_contador = 0
+            for linha in arquivo:
+                linha_contador += 1
+                if linha_contador == 4:
+                    print("\n Limite de 3 erros excedido.")
+                    print("Tente novamente mais tarde.")
+                    return
+            if linha_contador > 0:
+                print(f"\nForam encontrados **{linha_contador} erros** até agora.")
+            else:
+                print("\n Nenhum erro registrado no log.")
+
+    except FileNotFoundError:
+        print("\n Nenhum log encontrado ainda (**log.txt** não existe).")
+
+verificar_logs()
