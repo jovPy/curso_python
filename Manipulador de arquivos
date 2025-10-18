@@ -1,0 +1,45 @@
+import os
+# Criação de alunos
+with open("alunos.txt", "w") as arquivo:
+    arquivo.write("João\n")
+    arquivo.write("Maria\n")
+    arquivo.write("Carlos\n")
+with open("alunos.txt", "r") as arquivo:
+    conteudo = arquivo.read()
+    print("Conteúdo inicial do arquivo:")
+    print(conteudo)
+#Acrecentando novos alunos
+with open("alunos.txt", "a") as arquivo:
+    arquivo.write("Ana\n")
+    arquivo.write("Pedro\n")
+
+with open("alunos.txt", "r") as arquivo:
+    conteudo = arquivo.read()
+    print("Conteúdo atualizado do arquivo:")
+    print(conteudo)
+ # Reescrita   
+with open("alunos.txt", "w") as arquivo:
+    arquivo.write("Lista de alunos apagada!\n")
+
+with open("alunos.txt", "r") as arquivo:
+    conteudo = arquivo.read()
+    print("Conteúdo após reescrita total:")
+    print(conteudo)
+# Alunos em Turma
+with open("alunos.txt", "w") as arquivo:
+    arquivo.write("Conteúdo da turma A\n")
+os.rename("alunos.txt", "turmaA.txt")
+
+with open("turmaA.txt", "r") as arquivo:
+    conteudo = arquivo.read()
+    print("Conteúdo do arquivo renomeado:")
+    print(conteudo)
+# Exclusão do arquivo
+with open("temporario.txt", "w") as arquivo:
+    arquivo.write("Este arquivo será excluído.\n")
+os.remove("temporario.txt")
+try:
+    with open("temporario.txt", "r") as arquivo:
+        print(arquivo.read())
+except FileNotFoundError:
+    print("Arquivo não encontrado.")
