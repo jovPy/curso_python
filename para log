@@ -1,0 +1,22 @@
+import datetime
+
+def processa_e_loga():
+    try:
+        caractere = input("Digite um caractere: ")
+        if not caractere.isalpha():
+
+            raise TypeError(f"Caractere errado: '{caractere}' nao e alfabetico.")
+
+        print("Caractere aceito:", caractere)
+
+    except TypeError as erro:
+        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        log_mensagem = f"[{timestamp}] Erro: {erro}"
+
+        print("Erro:", erro)
+        with open("log.txt", "a") as arquivo:
+            arquivo.write(log_mensagem + "\n")
+            print("Log salvo em log.txt.")
+
+processa_e_loga()
